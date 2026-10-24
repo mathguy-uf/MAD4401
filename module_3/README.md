@@ -8,12 +8,20 @@ Module 3 develops numerical methods for initial-value problems in ordinary diffe
 
 Work through the sections in order. Each notebook contains explanations, executable Python, plots, and short experiments.
 
-| Section | Topic | GitHub | Run in Colab |
-|---|---|---|---|
-| **1** | Direction Fields and Autonomous ODEs | [Open notebook](01_direction_fields_autonomous_odes.ipynb) | [Open in Colab](https://colab.research.google.com/github/mathguy-uf/MAD4401/blob/main/module_3/01_direction_fields_autonomous_odes.ipynb) |
-| **2** | Euler's Method | [Open notebook](02_euler_method.ipynb) | [Open in Colab](https://colab.research.google.com/github/mathguy-uf/MAD4401/blob/main/module_3/02_euler_method.ipynb) |
-| **3** | Error in Euler's Method | [Open notebook](03_euler_error.ipynb) | [Open in Colab](https://colab.research.google.com/github/mathguy-uf/MAD4401/blob/main/module_3/03_euler_error.ipynb) |
-| **4** | Higher-Order Taylor Methods | [Open notebook](04_taylor_methods.ipynb) | [Open in Colab](https://colab.research.google.com/github/mathguy-uf/MAD4401/blob/main/module_3/04_taylor_methods.ipynb) |
+| Section | Topic | View | Run in Colab | Launch JupyterLab |
+|---|---|---|---|---|
+| **1** | Direction Fields and Autonomous ODEs | [View notebook](01_direction_fields_autonomous_odes.ipynb) | [Run in Colab](https://colab.research.google.com/github/mathguy-uf/MAD4401/blob/main/module_3/01_direction_fields_autonomous_odes.ipynb) | [Launch Binder](https://mybinder.org/v2/gh/mathguy-uf/MAD4401/main?urlpath=lab/tree/module_3/01_direction_fields_autonomous_odes.ipynb) |
+| **2** | Euler's Method | [View notebook](02_euler_method.ipynb) | [Run in Colab](https://colab.research.google.com/github/mathguy-uf/MAD4401/blob/main/module_3/02_euler_method.ipynb) | [Launch Binder](https://mybinder.org/v2/gh/mathguy-uf/MAD4401/main?urlpath=lab/tree/module_3/02_euler_method.ipynb) |
+| **3** | Error in Euler's Method | [View notebook](03_euler_error.ipynb) | [Run in Colab](https://colab.research.google.com/github/mathguy-uf/MAD4401/blob/main/module_3/03_euler_error.ipynb) | [Launch Binder](https://mybinder.org/v2/gh/mathguy-uf/MAD4401/main?urlpath=lab/tree/module_3/03_euler_error.ipynb) |
+| **4** | Higher-Order Taylor Methods | [View notebook](04_taylor_methods.ipynb) | [Run in Colab](https://colab.research.google.com/github/mathguy-uf/MAD4401/blob/main/module_3/04_taylor_methods.ipynb) | [Launch Binder](https://mybinder.org/v2/gh/mathguy-uf/MAD4401/main?urlpath=lab/tree/module_3/04_taylor_methods.ipynb) |
+
+### Which option should I use?
+
+- **View notebook** — read the notebook on GitHub without running code.
+- **Run in Colab** — opens the notebook in Google Colab, where you can run the cells in your browser. If you want to save your changes, use **File → Save a copy in Drive**.
+- **Launch Binder** — creates a temporary JupyterLab environment in your browser using the files and packages from this repository. Binder sessions are temporary, so download anything you want to keep before closing the session.
+
+> **Where does the code run?** GitHub only stores the course files. Running a notebook in Colab or Binder does **not** run code on Dr. Harrington's GitHub account or computer, and it does not modify the course repository. Colab runs code in a Google-hosted virtual machine associated with your session. Binder creates a temporary cloud environment from the public repository.
 
 ## Learning path
 
