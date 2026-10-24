@@ -4,7 +4,7 @@
 
 Module 1 develops the mathematical and computational foundations used throughout numerical analysis. The sequence follows the material emphasized in the course lectures and Exam 1: Taylor approximation and error, finite-precision arithmetic, root finding, fixed-point iteration, Newton's method, and order of convergence.
 
-The presentation follows **Leon Q. Brin, _Tea Time Numerical Analysis_** and **Burden & Faires, _Numerical Analysis_**. The algorithms use the course notation \(p_n\), `TOL`, and iteration histories, and the Python code is written in PEP 8 style.
+The presentation follows **Leon Q. Brin, _Tea Time Numerical Analysis_** and **Burden & Faires, _Numerical Analysis_**. The algorithms use the course notation $p_n$, `TOL`, and iteration histories, and the Python code is written in PEP 8 style.
 
 ## Start here
 
@@ -23,7 +23,7 @@ Work through the sections in order. Each notebook can be read on GitHub or run d
 
 ### Section 1 — Taylor Series and Error
 
-This notebook is deliberately **only about Taylor approximation**. It develops \(P_n(x)\), the Lagrange remainder, approximation of \(\ln(x)\), rigorous error bounds, and the question of how many terms are required for a specified tolerance.
+This notebook is deliberately **only about Taylor approximation**. It develops $P_n(x)$, the Lagrange remainder, approximation of $\ln(x)$, rigorous error bounds, and the question of how many terms are required for a specified tolerance.
 
 ### Section 2 — Numerical Error and Floating-Point Arithmetic
 
@@ -31,17 +31,17 @@ Study absolute and relative error, decimal chopping and rounding, IEEE-754 binar
 
 ### Section 3 — Bisection Method
 
-Use the Intermediate Value Theorem to bracket a root, implement bisection, track \(a_n\), \(b_n\), and \(p_n\), and use the bisection error bound to determine the number of iterations needed for a tolerance.
+Use the Intermediate Value Theorem to bracket a root, implement bisection, track $a_n$, $b_n$, and $p_n$, and use the bisection error bound to determine the number of iterations needed for a tolerance.
 
 ### Section 4 — Fixed-Point Iteration and Cobweb Diagrams
 
 This notebook emphasizes the geometry of fixed-point iteration. It uses the course example
 
-\[
+$$
 g(x)=\frac{5}{x+4}
-\]
+$$
 
-with \(p_0=1.5\), builds the iteration table, draws the cobweb diagram, checks the hypotheses of the Fixed-Point Theorem, and uses the contraction estimate to predict the number of iterations.
+with $p_0=1.5$, builds the iteration table, draws the cobweb diagram, checks the hypotheses of the Fixed-Point Theorem, and uses the contraction estimate to predict the number of iterations.
 
 ### Section 5 — Newton's Method
 
