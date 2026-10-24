@@ -2,7 +2,7 @@
 
 [← MAD 4401 home](../README.md)
 
-Module 3 develops numerical methods for initial-value problems in ordinary differential equations. The sequence begins with the geometry of an ODE, then builds Euler's method, studies its error, and improves accuracy with higher-order Taylor methods.
+Module 3 develops numerical methods for initial-value problems in ordinary differential equations. The sequence begins with the geometry of an ODE, then builds Euler's method, studies its error, and improves accuracy with Taylor and Runge–Kutta methods. The final section introduces adaptive RK23.
 
 ## Start here
 
@@ -14,6 +14,9 @@ Work through the sections in order. Each notebook contains explanations, executa
 | **2** | Euler's Method | [View notebook](02_euler_method.ipynb) | [Run in Colab](https://colab.research.google.com/github/mathguy-uf/MAD4401/blob/main/module_3/02_euler_method.ipynb) | [Launch Binder](https://mybinder.org/v2/gh/mathguy-uf/MAD4401/main?urlpath=lab/tree/module_3/02_euler_method.ipynb) |
 | **3** | Error in Euler's Method | [View notebook](03_euler_error.ipynb) | [Run in Colab](https://colab.research.google.com/github/mathguy-uf/MAD4401/blob/main/module_3/03_euler_error.ipynb) | [Launch Binder](https://mybinder.org/v2/gh/mathguy-uf/MAD4401/main?urlpath=lab/tree/module_3/03_euler_error.ipynb) |
 | **4** | Higher-Order Taylor Methods | [View notebook](04_taylor_methods.ipynb) | [Run in Colab](https://colab.research.google.com/github/mathguy-uf/MAD4401/blob/main/module_3/04_taylor_methods.ipynb) | [Launch Binder](https://mybinder.org/v2/gh/mathguy-uf/MAD4401/main?urlpath=lab/tree/module_3/04_taylor_methods.ipynb) |
+| **5** | Runge–Kutta Methods: RK2 and RK3 | [View notebook](05_rk2_rk3.ipynb) | [Run in Colab](https://colab.research.google.com/github/mathguy-uf/MAD4401/blob/main/module_3/05_rk2_rk3.ipynb) | [Launch Binder](https://mybinder.org/v2/gh/mathguy-uf/MAD4401/main?urlpath=lab/tree/module_3/05_rk2_rk3.ipynb) |
+| **6** | Classical RK4 | [View notebook](06_rk4.ipynb) | [Run in Colab](https://colab.research.google.com/github/mathguy-uf/MAD4401/blob/main/module_3/06_rk4.ipynb) | [Launch Binder](https://mybinder.org/v2/gh/mathguy-uf/MAD4401/main?urlpath=lab/tree/module_3/06_rk4.ipynb) |
+| **7** | Adaptive RK23 + Comparison of All Methods | [View notebook](07_rk23_and_method_comparison.ipynb) | [Run in Colab](https://colab.research.google.com/github/mathguy-uf/MAD4401/blob/main/module_3/07_rk23_and_method_comparison.ipynb) | [Launch Binder](https://mybinder.org/v2/gh/mathguy-uf/MAD4401/main?urlpath=lab/tree/module_3/07_rk23_and_method_comparison.ipynb) |
 
 ### Which option should I use?
 
@@ -21,43 +24,43 @@ Work through the sections in order. Each notebook contains explanations, executa
 - **Run in Colab** — opens the notebook in Google Colab, where you can run the cells in your browser. If you want to save your changes, use **File → Save a copy in Drive**.
 - **Launch Binder** — creates a temporary JupyterLab environment in your browser using the files and packages from this repository. Binder sessions are temporary, so download anything you want to keep before closing the session.
 
-> **Where does the code run?** GitHub only stores the course files. Running a notebook in Colab or Binder does **not** run code on Dr. Harrington's GitHub account or computer, and it does not modify the course repository. Colab runs code in a Google-hosted virtual machine associated with your session. Binder creates a temporary cloud environment from the public repository.
+> **Where does the code run?** GitHub only stores the course files. Running a notebook in Colab or Binder does **not** run code on Dr. Harrington's GitHub account or computer, and it does not modify the course repository.
 
 ## Learning path
 
 ### Section 1 — Direction Fields and Autonomous ODEs
-
-Start with the qualitative picture. You will interpret a first-order ODE, construct a direction field, identify equilibria of an autonomous equation, and classify equilibria as stable or unstable. The notebook uses
-
-\[
-y' = y-y^3
-\]
-
-to show two attracting equilibria and one repelling equilibrium in a single example. It also introduces the one-dimensional stable/unstable sets that lead to stable and unstable manifolds for systems.
+Interpret first-order ODEs, direction fields, autonomous equations, equilibria, and stability.
 
 ### Section 2 — Euler's Method
-
-Turn the geometric tangent-line idea into an algorithm:
-
-\[
-w_{n+1}=w_n+h f(t_n,w_n).
-\]
-
-You will implement Euler's method from scratch and compare the numerical approximation with an exact solution.
+Build the first numerical IVP solver from the tangent-line idea.
 
 ### Section 3 — Error in Euler's Method
-
-Study how one-step errors accumulate. You will distinguish the one-step defect from the scaled local truncation error, measure global error numerically, estimate convergence order, and compare actual error with the theoretical global error bound.
+Study local and global error, convergence, and error bounds.
 
 ### Section 4 — Higher-Order Taylor Methods
+Use additional Taylor terms to increase order, and see why derivative calculations become cumbersome.
 
-Use additional terms from the Taylor expansion to improve accuracy. You will implement second- and third-order Taylor methods, compare them with Euler's method, and see why Runge–Kutta methods are the natural next step.
+### Section 5 — Runge–Kutta Methods: RK2 and RK3
+Implement Improved Euler, midpoint RK2, and Heun's three-stage RK3. Compare error and observed convergence order.
 
-## Coming next
+### Section 6 — Classical RK4
+Implement the four-stage classical Runge–Kutta method, reproduce the lecture example, and verify fourth-order convergence.
 
-- Section 5 — Runge–Kutta Methods
-- Section 6 — Systems of ODEs
-- Section 7 — Numerical Methods Meet Dynamical Systems
+### Section 7 — Adaptive RK23 and Comparison of All Methods
+Implement **Brin's adaptive RK2(3)** method from Section 6.5 of _Tea Time Numerical Analysis_. The notebook ends with one common-IVP comparison of Euler, Taylor 2/3, RK2, RK3, RK4, and adaptive RK23.
+
+## References
+
+The ODE sequence is organized using:
+
+- Leon Q. Brin, _Tea Time Numerical Analysis_, Chapter 6, especially Sections 6.2–6.5.
+- Richard L. Burden and J. Douglas Faires, _Numerical Analysis_, for standard Runge–Kutta notation, order, and error analysis.
+- The course lecture notes in this repository/course site.
+
+## Coming later
+
+- Systems of ODEs
+- Numerical methods and dynamical systems
 
 ---
 
