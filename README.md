@@ -9,7 +9,7 @@ This repository is organized as a guided set of modules rather than a file archi
 | Module | Topic | Status | Start |
 |---|---|---|---|
 | **Module 1** | Foundations, Error, and Root Finding | **Available** | **[Start Module 1](module_1/README.md)** |
-| **Module 2** | Approximation and Numerical Calculus | Coming soon | [Open Module 2](module_2/README.md) |
+| **Module 2** | Approximation, Interpolation, and Numerical Calculus | **Available** | **[Start Module 2](module_2/README.md)** |
 | **Module 3** | Numerical Solutions of Differential Equations | **Available** | **[Start Module 3](module_3/README.md)** |
 
 # How to use GitHub for this course
@@ -96,7 +96,7 @@ You do **not** need to use `git push` for this course. `git pull` is the command
 
 ## Browser-based options
 
-The Module 1 and Module 3 pages include **Google Colab** and **Binder/JupyterLab** launch links. These let you run notebooks in the browser without running code on the instructor's GitHub account or computer.
+All three module pages include **Google Colab** and **Binder/JupyterLab** launch links. These let you run notebooks in the browser without running code on the instructor's GitHub account or computer.
 
 ## Current material
 
@@ -109,6 +109,17 @@ The Module 1 and Module 3 pages include **Google Colab** and **Binder/JupyterLab
 5. Newton's Method
 6. Order and Rate of Convergence
 
+### Module 2
+
+1. Lagrange Interpolation and Error
+2. Degree-10 LIP vs. Degree-10 Taylor
+3. Newton Divided Differences
+4. Neville's Method
+5. Least-Squares Best Fit
+6. Numerical Differentiation
+7. Riemann Sums
+8. Trapezoidal and Simpson's Rules
+
 ### Module 3
 
 1. Direction Fields and Autonomous ODEs
@@ -119,7 +130,7 @@ The Module 1 and Module 3 pages include **Google Colab** and **Binder/JupyterLab
 6. Classical RK4
 7. Adaptive RK23 and Comparison of All Methods
 
-The course notebooks use **Leon Q. Brin's _Tea Time Numerical Analysis_** as a primary reference and **Burden & Faires, _Numerical Analysis_** as a standard reference for notation, algorithms, and error analysis.
+The course notebooks use **Eric Sullivan's _Numerical Methods: An Inquiry-Based Approach with Python_**, **Leon Q. Brin's _Tea Time Numerical Analysis_**, and **Burden & Faires, _Numerical Analysis_** as references for computational presentation, notation, algorithms, and error analysis.
 
 ---
 
