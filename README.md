@@ -18,19 +18,11 @@ You can read the notebooks directly on GitHub, but if you want to **run the Pyth
 
 ## 1. Open a terminal
 
-Use one of the following:
-
 - **Windows:** PowerShell or Windows Terminal
 - **macOS:** Terminal
 - **Linux:** Terminal
 
-The commands below work in all three environments.
-
 ## 2. Choose where you want the course files
-
-First, use `cd` to move to the folder where you want to keep the course repository.
-
-For example:
 
 ```bash
 cd Documents
@@ -40,90 +32,42 @@ Useful navigation commands:
 
 ```bash
 pwd
-```
-
-shows your current folder.
-
-```bash
 ls
-```
-
-shows the files and folders in your current location.
-
-```bash
 cd folder_name
-```
-
-moves into a folder.
-
-```bash
 cd ..
 ```
 
-moves up one folder.
-
 ## 3. Clone the repository — do this only once
-
-From the folder where you want MAD 4401 stored, run:
 
 ```bash
 git clone https://github.com/mathguy-uf/MAD4401.git
-```
-
-Git will create a new folder named `MAD4401` containing the course files.
-
-Now move into it:
-
-```bash
 cd MAD4401
 ```
 
 ## 4. Install the Python packages
 
-From inside the `MAD4401` folder, run:
-
 ```bash
 python -m pip install -r requirements.txt
 ```
 
-You normally only need to do this the first time, unless the required packages change later in the semester.
-
 ## 5. Open the notebooks
-
-Start Jupyter with:
 
 ```bash
 jupyter lab
 ```
 
-Your web browser should open automatically. From there, open the module folder and select the notebook you want to run.
-
-For example, Module 3 is located in:
-
-```text
-module_3/
-```
-
-To stop Jupyter, return to the terminal and press:
-
-```text
-Ctrl+C
-```
+To stop Jupyter, return to the terminal and press `Ctrl+C`.
 
 ## 6. Get new course files later
 
 You **do not need to clone the repository again**.
-
-Open a terminal, move into your existing MAD4401 folder, and run:
 
 ```bash
 cd MAD4401
 git pull
 ```
 
-`git pull` downloads the newest files and changes from the course repository.
-
-A typical session might therefore look like:
+A typical session might look like:
 
 ```bash
 cd Documents/MAD4401
@@ -150,20 +94,23 @@ If you experiment with a notebook, Git may report that your local file has been 
 
 You do **not** need to use `git push` for this course. `git pull` is the command you will normally use to receive new material from the instructor repository.
 
-## Using Google Colab instead
+## Browser-based options
 
-If you do not want to run Jupyter locally, the Module 3 page includes links that open the notebooks in **Google Colab**. This lets you run the notebook in your browser without cloning the repository or installing Python packages locally.
+The Module 3 page includes **Google Colab** and **Binder/JupyterLab** launch links. These let you run notebooks in the browser without running code on the instructor's GitHub account or computer.
 
 ## Current material
 
-Module 3 currently contains Sections 1–4:
+Module 3 currently contains Sections 1–7:
 
 1. Direction Fields and Autonomous ODEs
 2. Euler's Method
 3. Error in Euler's Method
 4. Higher-Order Taylor Methods
+5. Runge–Kutta Methods: RK2 and RK3
+6. Classical RK4
+7. Adaptive RK23 and Comparison of All Methods
 
-Later sections will continue with Runge–Kutta methods, systems of ODEs, and dynamical-systems applications.
+The Module 3 sequence uses **Leon Q. Brin's _Tea Time Numerical Analysis_** as a primary reference and **Burden & Faires, _Numerical Analysis_** as a standard supplemental reference for notation and error analysis.
 
 ---
 
