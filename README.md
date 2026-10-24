@@ -8,7 +8,7 @@ This repository is organized as a guided set of modules rather than a file archi
 
 | Module | Topic | Status | Start |
 |---|---|---|---|
-| **Module 1** | Foundations and Root Finding | Coming soon | [Open Module 1](module_1/README.md) |
+| **Module 1** | Foundations, Error, and Root Finding | **Available** | **[Start Module 1](module_1/README.md)** |
 | **Module 2** | Approximation and Numerical Calculus | Coming soon | [Open Module 2](module_2/README.md) |
 | **Module 3** | Numerical Solutions of Differential Equations | **Available** | **[Start Module 3](module_3/README.md)** |
 
@@ -96,11 +96,20 @@ You do **not** need to use `git push` for this course. `git pull` is the command
 
 ## Browser-based options
 
-The Module 3 page includes **Google Colab** and **Binder/JupyterLab** launch links. These let you run notebooks in the browser without running code on the instructor's GitHub account or computer.
+The Module 1 and Module 3 pages include **Google Colab** and **Binder/JupyterLab** launch links. These let you run notebooks in the browser without running code on the instructor's GitHub account or computer.
 
 ## Current material
 
-Module 3 currently contains Sections 1–7:
+### Module 1
+
+1. Taylor Series and Error
+2. Numerical Error and Floating-Point Arithmetic
+3. Bisection Method
+4. Fixed-Point Iteration and Cobweb Diagrams
+5. Newton's Method
+6. Order and Rate of Convergence
+
+### Module 3
 
 1. Direction Fields and Autonomous ODEs
 2. Euler's Method
@@ -110,7 +119,7 @@ Module 3 currently contains Sections 1–7:
 6. Classical RK4
 7. Adaptive RK23 and Comparison of All Methods
 
-The Module 3 sequence uses **Leon Q. Brin's _Tea Time Numerical Analysis_** as a primary reference and **Burden & Faires, _Numerical Analysis_** as a standard supplemental reference for notation and error analysis.
+The course notebooks use **Leon Q. Brin's _Tea Time Numerical Analysis_** as a primary reference and **Burden & Faires, _Numerical Analysis_** as a standard reference for notation, algorithms, and error analysis.
 
 ---
 
