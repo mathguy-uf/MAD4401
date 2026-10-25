@@ -1,17 +1,23 @@
-"""Check MAD 4401 notebooks for basic consistency and PEP 8 style."""
+"""Audit MAD 4401 notebooks and student-facing repository consistency."""
 
 from __future__ import annotations
 
 import ast
 import json
+import re
 import sys
 import tempfile
 from pathlib import Path
+from urllib.parse import unquote
 
 import pycodestyle
 
 MODULE_DIRECTORIES = ("module_1", "module_2", "module_3")
 IGNORED_PYCODESTYLE_CODES = ("E402", "W292", "W503")
+NOTEBOOK_NAME_PATTERN = re.compile(r"^\d{2}_[a-z0-9_]+\.ipynb$")
+MARKDOWN_LINK_PATTERN = re.compile(r"\[[^\]]*\]\(([^)]+)\)")
+HTML_ID_PATTERN = re.compile(r'\bid=["\']([^"\']+)["\']')
+HTML_ANCHOR_PATTERN = re.compile(r'href=["\']#([^"\']+)["\']')
 
 
 def notebook_paths(root: Path) -> list[Path]:
@@ -130,23 +136,131 @@ def check_code_cells(path: Path, cells: list[dict]) -> list[str]:
     return issues
 
 
-def check_notebook(path: Path) -> list[str]:
+def check_notebook(path: Path, root: Path) -> list[str]:
     """Run all checks for one notebook."""
+    relative_path = path.relative_to(root)
+
     try:
         notebook = json.loads(path.read_text(encoding="utf-8"))
     except json.JSONDecodeError as error:
-        return [f"{path}: invalid notebook JSON: {error}."]
+        return [f"{relative_path}: invalid notebook JSON: {error}."]
 
     cells = notebook.get("cells", [])
     issues: list[str] = []
-    issues.extend(check_section_title(path, cells))
-    issues.extend(check_markdown(path, cells))
-    issues.extend(check_code_cells(path, cells))
+    issues.extend(check_section_title(relative_path, cells))
+    issues.extend(check_markdown(relative_path, cells))
+    issues.extend(check_code_cells(relative_path, cells))
+    return issues
+
+
+def check_notebook_names(paths: list[Path], root: Path) -> list[str]:
+    """Check the numbered lowercase notebook filename convention."""
+    issues: list[str] = []
+
+    for path in paths:
+        if not NOTEBOOK_NAME_PATTERN.fullmatch(path.name):
+            relative_path = path.relative_to(root)
+            issues.append(
+                f"{relative_path}: notebook filename should use the "
+                "NN_lowercase_snake_case.ipynb convention."
+            )
+
+    return issues
+
+
+def markdown_files(root: Path) -> list[Path]:
+    """Return student-facing Markdown files whose local links should work."""
+    paths = [
+        root / "README.md",
+        root / "START_HERE.md",
+        root / "GITHUB_GUIDE.md",
+    ]
+    paths.extend(root / directory / "README.md" for directory in MODULE_DIRECTORIES)
+    return [path for path in paths if path.exists()]
+
+
+def check_local_markdown_links(root: Path) -> list[str]:
+    """Check that relative links in student-facing Markdown files resolve."""
+    issues: list[str] = []
+
+    for path in markdown_files(root):
+        text = path.read_text(encoding="utf-8")
+        for target in MARKDOWN_LINK_PATTERN.findall(text):
+            target = target.strip().strip("<>")
+            if target.startswith(("http://", "https://", "mailto:", "#")):
+                continue
+
+            local_target = unquote(target.split("#", maxsplit=1)[0])
+            local_target = local_target.split("?", maxsplit=1)[0]
+            if not local_target:
+                continue
+
+            resolved = (path.parent / local_target).resolve()
+            if not resolved.exists():
+                relative_path = path.relative_to(root)
+                issues.append(
+                    f"{relative_path}: local link does not resolve: {target}"
+                )
+
+    return issues
+
+
+def check_notebook_coverage(
+    root: Path,
+    paths: list[Path],
+) -> list[str]:
+    """Check that every notebook appears in all student navigation surfaces."""
+    issues: list[str] = []
+    root_readme = (root / "README.md").read_text(encoding="utf-8")
+    script = (root / "script.js").read_text(encoding="utf-8")
+
+    module_readmes = {
+        directory: (root / directory / "README.md").read_text(
+            encoding="utf-8"
+        )
+        for directory in MODULE_DIRECTORIES
+    }
+
+    for path in paths:
+        relative_path = path.relative_to(root).as_posix()
+        directory = path.parent.name
+
+        if relative_path not in root_readme:
+            issues.append(
+                f"README.md: missing notebook navigation for {relative_path}."
+            )
+
+        if relative_path not in script:
+            issues.append(
+                f"script.js: missing Pages card for {relative_path}."
+            )
+
+        if path.name not in module_readmes[directory]:
+            issues.append(
+                f"{directory}/README.md: missing notebook {path.name}."
+            )
+
+    return issues
+
+
+def check_html_anchors(root: Path) -> list[str]:
+    """Check that same-page links in the Pages welcome page have targets."""
+    html_path = root / "index.html"
+    html = html_path.read_text(encoding="utf-8")
+    identifiers = set(HTML_ID_PATTERN.findall(html))
+    issues: list[str] = []
+
+    for anchor in sorted(set(HTML_ANCHOR_PATTERN.findall(html))):
+        if anchor not in identifiers:
+            issues.append(
+                f"index.html: internal link '#{anchor}' has no matching id."
+            )
+
     return issues
 
 
 def main() -> int:
-    """Check all course notebooks and return a shell-friendly status code."""
+    """Check course notebooks and repository navigation consistency."""
     root = Path(__file__).resolve().parents[1]
     paths = notebook_paths(root)
 
@@ -156,17 +270,24 @@ def main() -> int:
 
     all_issues: list[str] = []
     for path in paths:
-        relative_path = path.relative_to(root)
-        print(f"Checking {relative_path}")
-        all_issues.extend(check_notebook(relative_path))
+        print(f"Checking {path.relative_to(root)}")
+        all_issues.extend(check_notebook(path, root))
+
+    all_issues.extend(check_notebook_names(paths, root))
+    all_issues.extend(check_local_markdown_links(root))
+    all_issues.extend(check_notebook_coverage(root, paths))
+    all_issues.extend(check_html_anchors(root))
 
     if all_issues:
-        print("\nNotebook style audit found issues:\n")
+        print("\nRepository audit found issues:\n")
         for issue in all_issues:
             print(f"- {issue}")
         return 1
 
-    print(f"\nAll {len(paths)} notebooks passed the style audit.")
+    print(
+        f"\nAll {len(paths)} notebooks and student navigation surfaces "
+        "passed the audit."
+    )
     return 0
 
 
