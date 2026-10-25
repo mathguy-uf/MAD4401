@@ -141,7 +141,7 @@ const courseModules = {
       number: '05',
       title: 'Runge–Kutta: RK2 and RK3',
       description: 'Improved Euler, midpoint RK2, Heun RK3, and numerical order comparisons.',
-      path: 'module_3/05_runge_kutta_rk2_rk3.ipynb',
+      path: 'module_3/05_rk2_rk3.ipynb',
     },
     {
       number: '06',
@@ -153,7 +153,7 @@ const courseModules = {
       number: '07',
       title: 'Adaptive RK23 and Method Comparison',
       description: 'Brin-style adaptive RK23 plus a common-IVP comparison of all major methods in the course.',
-      path: 'module_3/07_rk23_and_comparison.ipynb',
+      path: 'module_3/07_rk23_and_method_comparison.ipynb',
     },
   ],
 };
