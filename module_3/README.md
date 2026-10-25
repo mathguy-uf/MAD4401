@@ -1,4 +1,4 @@
-# Module 3 — Numerical Solutions of Differential Equations
+# Module 3 — Initial-Value Problems and Numerical ODEs
 
 [← MAD 4401 home](../README.md) · [Student Git/GitHub Guide](../GITHUB_GUIDE.md)
 
