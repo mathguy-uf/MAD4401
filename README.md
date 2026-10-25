@@ -12,11 +12,29 @@ This repository is organized as a guided set of modules rather than a file archi
 | **Module 2** | Approximation, Interpolation, and Numerical Calculus | **Available** | **[Start Module 2](module_2/README.md)** |
 | **Module 3** | Initial-Value Problems and Numerical ODEs | **Available** | **[Start Module 3](module_3/README.md)** |
 
-# How to use GitHub for this course
+# New to GitHub?
 
-You can read notebooks directly on GitHub. To run the Python code locally, clone the repository once and then use `git pull` whenever course material is updated.
+You do **not** need to know advanced Git to use this course repository.
 
-## First time only
+Start with the **[Student Guide to Git and GitHub](GITHUB_GUIDE.md)**. It explains:
+
+- what Git, GitHub, and JupyterLab each do;
+- how to clone the course repository;
+- how to use `git pull` to get new material;
+- how to use `git status` to see local changes;
+- how to protect work you have done in a notebook;
+- what to do when `git pull` reports a conflict with local changes;
+- how to use Colab or Binder instead of installing Python locally.
+
+For normal course use, the most important Git commands are:
+
+```bash
+git clone https://github.com/mathguy-uf/MAD4401.git
+git pull
+git status
+```
+
+## First-time local setup
 
 ```bash
 cd Documents
@@ -26,7 +44,11 @@ python -m pip install -r requirements.txt
 jupyter lab
 ```
 
-## Later course sessions
+If your system does not recognize `python`, try `python3` or `py`.
+
+## Normal class-day workflow
+
+After the repository has been cloned once:
 
 ```bash
 cd Documents/MAD4401
@@ -34,7 +56,9 @@ git pull
 jupyter lab
 ```
 
-Useful commands:
+Do **not** clone the repository again every time new material is posted.
+
+## Useful commands
 
 | Command | What it does |
 |---|---|
@@ -45,13 +69,20 @@ Useful commands:
 | `git clone URL` | Makes your first local copy |
 | `git pull` | Gets the latest course updates |
 | `git status` | Shows local changes |
+| `git restore FILE` | Restores the instructor version of a file; use carefully |
 | `jupyter lab` | Opens JupyterLab |
 
-If you edit a course notebook, Git may report that your local file has changed. Make a copy first if you want to preserve your work. Students normally need `git pull`, not `git push`.
+If you edit a course notebook, Git may report that your local file has changed. That is normal. The safest habit is to make a personal copy before experimenting with a course notebook. Students normally need `git pull`, not `git push`.
 
 ## Browser-based options
 
-All three module pages include **Google Colab** and **Binder/JupyterLab** links. These run notebooks in hosted browser environments. They do not run code on the instructor's GitHub account or computer.
+All three module pages include **Google Colab** and **Binder/JupyterLab** links.
+
+- **View notebook** — read the notebook on GitHub.
+- **Run in Colab** — execute it in a Google-hosted browser session.
+- **Launch Binder** — execute it in a temporary JupyterLab environment.
+
+These services do **not** run code on the instructor's GitHub account or computer, and they do not modify the course repository.
 
 ## Current material
 
@@ -85,6 +116,8 @@ All three module pages include **Google Colab** and **Binder/JupyterLab** links.
 5. Runge–Kutta Methods: RK2 and RK3
 6. Classical RK4
 7. Adaptive RK23 and Comparison of All Methods
+
+## References
 
 The course notebooks use **Eric Sullivan's _Numerical Methods: An Inquiry-Based Approach with Python_**, **Leon Q. Brin's _Tea Time Numerical Analysis_**, and **Burden & Faires, _Numerical Analysis_** as references for computational presentation, notation, algorithms, and error analysis.
 
