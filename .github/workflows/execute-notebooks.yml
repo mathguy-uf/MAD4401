@@ -42,7 +42,7 @@ jobs:
 
       - name: Execute all course notebooks
         env:
-          MPLBACKEND: Agg
+          MPLBACKEND: module://matplotlib_inline.backend_inline
         run: |
           set -euo pipefail
           find module_1 module_2 module_3 -name '*.ipynb' -print0 \
