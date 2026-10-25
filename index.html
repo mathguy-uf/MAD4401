@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0021A5">
+  <meta name="description" content="MAD 4401 Numerical Analysis course resources: approximation, floating-point arithmetic, root finding, interpolation, numerical calculus, and numerical ODE methods.">
+  <title>MAD 4401 | Numerical Analysis</title>
+  <link rel="stylesheet" href="style.css?v=1.0.0">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="nav-shell">
+      <a class="brand" href="#top" aria-label="MAD 4401 home">
+        <span class="brand-mark" aria-hidden="true">4401</span>
+        <span>
+          <strong>MAD 4401</strong>
+          <small>Numerical Analysis</small>
+        </span>
+      </a>
+      <button
+        class="menu-button"
+        id="menuButton"
+        type="button"
+        aria-expanded="false"
+        aria-controls="siteNav"
+      >Menu</button>
+      <nav class="site-nav" id="siteNav" aria-label="Main navigation">
+        <a href="#module-1">Module 1</a>
+        <a href="#module-2">Module 2</a>
+        <a href="#module-3">Module 3</a>
+        <a href="#github">Using GitHub</a>
+        <a
+          class="nav-github"
+          href="https://github.com/mathguy-uf/MAD4401"
+        >Repository</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="hero" id="top">
+      <div class="hero-grid page-shell">
+        <div class="hero-copy">
+          <p class="eyebrow">UNIVERSITY OF FLORIDA · MAD 4401</p>
+          <h1>Numerical Analysis <span>with Python</span></h1>
+          <p class="hero-lead">
+            Understand approximation and error, build numerical methods from
+            mathematical ideas, and use computation to see how the algorithms
+            actually behave.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#modules">
+              Explore the modules
+            </a>
+            <a class="button button-secondary" href="#github">
+              New to GitHub?
+            </a>
+          </div>
+          <div class="hero-tags" aria-label="Course topics">
+            <span>Error</span>
+            <span>Root finding</span>
+            <span>Interpolation</span>
+            <span>Numerical calculus</span>
+            <span>ODEs</span>
+          </div>
+        </div>
+
+        <aside class="code-card" aria-label="Numerical analysis idea">
+          <div class="code-card-top">
+            <span></span><span></span><span></span>
+          </div>
+          <pre><code><span class="code-comment"># numerical analysis</span>
+problem = <span class="code-string">"solve what exact formulas cannot"</span>
+
+approximation = choose_method(problem)
+result = approximation.compute()
+error = estimate_error(result)
+
+<span class="code-keyword">if</span> error &lt; tolerance:
+    explain(result)
+<span class="code-keyword">else</span>:
+    improve_method()</code></pre>
+        </aside>
+      </div>
+    </section>
+
+    <section class="current-section" aria-labelledby="current-title">
+      <div class="page-shell">
+        <div class="current-card">
+          <div class="current-badge">COURSE REPOSITORY</div>
+          <div class="current-main">
+            <div>
+              <p class="section-kicker">ALL THREE MODULES ARE AVAILABLE</p>
+              <h2 id="current-title">Learn it, run it, compare it.</h2>
+              <p>
+                Every module has a guided landing page, executable notebooks,
+                saved output, and direct links to GitHub, Google Colab, and
+                Binder/JupyterLab.
+              </p>
+            </div>
+            <div class="current-actions">
+              <span class="status-pill">Ready to use</span>
+              <a class="button button-primary" href="#modules">
+                Choose a module
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pathways page-shell" id="modules" aria-labelledby="pathways-title">
+      <div class="section-heading centered-heading">
+        <p class="section-kicker">CHOOSE WHERE YOU NEED TO GO</p>
+        <h2 id="pathways-title">Use the course, not the file tree.</h2>
+        <p>
+          The repository is organized around the three course modules. Start
+          with the mathematics you are studying, then use the notebooks to
+          experiment with the methods.
+        </p>
+      </div>
+
+      <div class="pathway-grid">
+        <a class="pathway-card blue-card" href="#module-1">
+          <span class="pathway-number">01</span>
+          <span class="pathway-icon" aria-hidden="true">f(x)</span>
+          <h3>Module 1</h3>
+          <p>
+            Taylor approximation, finite precision, root finding, fixed points,
+            Newton's method, and convergence.
+          </p>
+          <span class="card-link">Start foundations →</span>
+        </a>
+
+        <a class="pathway-card orange-card" href="#module-2">
+          <span class="pathway-number">02</span>
+          <span class="pathway-icon" aria-hidden="true">Pₙ</span>
+          <h3>Module 2</h3>
+          <p>
+            Interpolation, best fit, numerical differentiation, Riemann sums,
+            trapezoidal rule, and Simpson's rule.
+          </p>
+          <span class="card-link">Start approximation →</span>
+        </a>
+
+        <a class="pathway-card green-card" href="#module-3">
+          <span class="pathway-number">03</span>
+          <span class="pathway-icon" aria-hidden="true">y′</span>
+          <h3>Module 3</h3>
+          <p>
+            IVPs, direction fields, Euler, error, Taylor methods, Runge–Kutta,
+            and adaptive RK23.
+          </p>
+          <span class="card-link">Start ODEs →</span>
+        </a>
+
+        <a class="pathway-card purple-card" href="#github">
+          <span class="pathway-number">04</span>
+          <span class="pathway-icon" aria-hidden="true">git</span>
+          <h3>Using GitHub</h3>
+          <p>
+            Learn the few Git commands you actually need and choose how you
+            want to run the notebooks.
+          </p>
+          <span class="card-link">Learn the workflow →</span>
+        </a>
+      </div>
+    </section>
+
+    <section
+      class="content-section light-section"
+      id="module-1"
+      aria-labelledby="module-1-title"
+    >
+      <div class="page-shell">
+        <div class="module-intro">
+          <div class="section-heading">
+            <p class="section-kicker">MODULE 1 · FOUNDATIONS</p>
+            <h2 id="module-1-title">Error, Root Finding &amp; Convergence</h2>
+            <p>
+              Begin with Taylor approximation and finite arithmetic, then move
+              into the algorithms and convergence ideas behind root finding.
+            </p>
+          </div>
+          <a
+            class="button button-secondary module-link"
+            href="https://github.com/mathguy-uf/MAD4401/blob/main/module_1/README.md"
+          >Module 1 guide</a>
+        </div>
+        <div class="resource-grid three-column" id="module1Resources"></div>
+      </div>
+    </section>
+
+    <section
+      class="content-section"
+      id="module-2"
+      aria-labelledby="module-2-title"
+    >
+      <div class="page-shell">
+        <div class="module-intro">
+          <div class="section-heading">
+            <p class="section-kicker">MODULE 2 · APPROXIMATION</p>
+            <h2 id="module-2-title">Interpolation &amp; Numerical Calculus</h2>
+            <p>
+              Build approximating polynomials and best-fit models, then use
+              discrete information to approximate derivatives and integrals.
+            </p>
+          </div>
+          <a
+            class="button button-secondary module-link"
+            href="https://github.com/mathguy-uf/MAD4401/blob/main/module_2/README.md"
+          >Module 2 guide</a>
+        </div>
+        <div class="resource-grid" id="module2Resources"></div>
+      </div>
+    </section>
+
+    <section
+      class="content-section light-section"
+      id="module-3"
+      aria-labelledby="module-3-title"
+    >
+      <div class="page-shell">
+        <div class="module-intro">
+          <div class="section-heading">
+            <p class="section-kicker">MODULE 3 · DIFFERENTIAL EQUATIONS</p>
+            <h2 id="module-3-title">Initial-Value Problems &amp; Numerical ODEs</h2>
+            <p>
+              Start with existence, uniqueness, and qualitative behavior, then
+              develop increasingly accurate numerical ODE solvers.
+            </p>
+          </div>
+          <a
+            class="button button-secondary module-link"
+            href="https://github.com/mathguy-uf/MAD4401/blob/main/module_3/README.md"
+          >Module 3 guide</a>
+        </div>
+        <div class="resource-grid" id="module3Resources"></div>
+      </div>
+    </section>
+
+    <section class="github-guide" id="github" aria-labelledby="github-title">
+      <div class="page-shell github-grid">
+        <div>
+          <div class="section-heading">
+            <p class="section-kicker">NEW TO GITHUB?</p>
+            <h2 id="github-title">You only need a few things.</h2>
+            <p>
+              GitHub stores the course material. You can read notebooks there,
+              run them in a hosted browser, or keep your own local copy with Git.
+            </p>
+          </div>
+
+          <div class="github-methods">
+            <div class="github-method">
+              <span>1</span>
+              <div>
+                <strong>View on GitHub</strong>
+                <small>Best for reading the notebook and saved output.</small>
+              </div>
+            </div>
+            <div class="github-method">
+              <span>2</span>
+              <div>
+                <strong>Run in Colab</strong>
+                <small>Best for running one notebook without local setup.</small>
+              </div>
+            </div>
+            <div class="github-method">
+              <span>3</span>
+              <div>
+                <strong>Clone with Git</strong>
+                <small>Best if you want the whole course on your computer.</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-actions">
+            <a
+              class="button button-light"
+              href="https://github.com/mathguy-uf/MAD4401/blob/main/GITHUB_GUIDE.md"
+            >Open the student Git guide</a>
+          </div>
+        </div>
+
+        <div class="terminal-card" aria-label="Typical Git workflow">
+          <div class="terminal-title">Typical course workflow</div>
+          <pre><code><span class="terminal-prompt">$</span> cd Documents
+<span class="terminal-prompt">$</span> git clone https://github.com/mathguy-uf/MAD4401.git
+<span class="terminal-prompt">$</span> cd MAD4401
+<span class="terminal-prompt">$</span> python -m pip install -r requirements.txt
+<span class="terminal-prompt">$</span> jupyter lab
+
+<span class="code-comment"># Later class days</span>
+<span class="terminal-prompt">$</span> cd Documents/MAD4401
+<span class="terminal-prompt">$</span> git pull
+<span class="terminal-prompt">$</span> git status
+<span class="terminal-prompt">$</span> jupyter lab</code></pre>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="page-shell footer-grid">
+      <p>
+        MAD 4401 · Numerical Analysis · Department of Mathematics ·
+        University of Florida
+      </p>
+      <div class="footer-links">
+        <a href="https://github.com/mathguy-uf/MAD4401">Repository</a>
+        <a href="https://github.com/mathguy-uf/MAD4401/blob/main/GITHUB_GUIDE.md">
+          Git guide
+        </a>
+        <a href="#top">Back to top ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js?v=1.0.0"></script>
+</body>
+</html>
