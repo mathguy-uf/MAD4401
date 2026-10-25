@@ -45,7 +45,7 @@ with $p_0=1.5$, builds the iteration table, draws the cobweb diagram, checks the
 
 ### Section 5 — Newton's Method
 
-Derive Newton's method from tangent lines, implement the iteration, visualize the first tangent steps, and discuss why Newton's method can fail even though it is usually much faster than bisection near a simple root.
+Derive Newton's method from tangent lines, implement the iteration, and visualize successful Newton steps. Then study three ways the method can misbehave: divergence for $f(x)=\sqrt[3]{x}$, a two-cycle for $f(x)=x^3-2x+2$, and loss of quadratic convergence at a multiple root. These examples reinforce why Newton's method is fast locally but is not globally guaranteed to converge.
 
 ### Section 6 — Big-O, Order, and Rate of Convergence
 
