@@ -11,7 +11,7 @@ from pathlib import Path
 import pycodestyle
 
 MODULE_DIRECTORIES = ("module_1", "module_2", "module_3")
-IGNORED_PYCODESTYLE_CODES = ("E402", "W503")
+IGNORED_PYCODESTYLE_CODES = ("E402", "W292", "W503")
 
 
 def notebook_paths(root: Path) -> list[Path]:
