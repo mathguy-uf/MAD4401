@@ -54,6 +54,7 @@ jobs:
 
           module_directories = ("module_1", "module_2", "module_3")
           selected_fixes = (
+              "E128",
               "E225",
               "E226",
               "E231",
@@ -61,6 +62,33 @@ jobs:
               "E305",
               "E501",
           )
+
+          replacements = {
+              "sol = solve_ivp(f, (0, 6), [y0], t_eval=t_eval, rtol=1e-9, atol=1e-11)": (
+                  "sol = solve_ivp(\n"
+                  "    f,\n"
+                  "    (0, 6),\n"
+                  "    [y0],\n"
+                  "    t_eval=t_eval,\n"
+                  "    rtol=1e-9,\n"
+                  "    atol=1e-11,\n"
+                  ")"
+              ),
+              "print(\"     h    steps       w(2)          exact          error      observed p\")": (
+                  "header = (\n"
+                  "    \"     h    steps       w(2)          exact\"\n"
+                  "    \"          error      observed p\"\n"
+                  ")\n"
+                  "print(header)"
+              ),
+              "print(f\"{h:7.3f}   {n_steps:4d}   {w[-1]:12.8f}   {exact(2.0):12.8f}   {error:10.6f}   {p_text}\")": (
+                  "row = (\n"
+                  "    f\"{h:7.3f}   {n_steps:4d}   {w[-1]:12.8f}   \"\n"
+                  "    f\"{exact(2.0):12.8f}   {error:10.6f}   {p_text}\"\n"
+                  ")\n"
+                  "print(row)"
+              ),
+          }
 
           for directory in module_directories:
               for path in sorted(Path(directory).glob("*.ipynb")):
@@ -76,6 +104,9 @@ jobs:
                       if not code.strip():
                           continue
 
+                      for old, new in replacements.items():
+                          code = code.replace(old, new)
+
                       formatted = autopep8.fix_code(
                           code,
                           options={
@@ -85,7 +116,12 @@ jobs:
                           },
                       )
 
-                      if formatted != code:
+                      original = (
+                          "".join(source)
+                          if isinstance(source, list)
+                          else str(source)
+                      )
+                      if formatted != original:
                           cell["source"] = formatted.splitlines(keepends=True)
                           changed = True
 
