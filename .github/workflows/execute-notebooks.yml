@@ -60,51 +60,70 @@ jobs:
           python -m pip install -r requirements.txt
           python -m pip install "pycodestyle>=2.12,<3" "autopep8>=2.3,<3"
 
-      - name: Format notebook Python cells
+      - name: Format legacy notebook Python cells
         run: |
           python - <<'PY'
           import json
+          import re
           from pathlib import Path
 
           import autopep8
 
           module_directories = ("module_1", "module_2", "module_3")
-          selected_fixes = (
-              "E128",
-              "E225",
-              "E226",
-              "E231",
-              "E302",
-              "E305",
-              "E501",
-          )
+          selected_fixes = ("E225", "E226", "E231", "E302", "E305")
 
-          replacements = {
-              "sol = solve_ivp(f, (0, 6), [y0], t_eval=t_eval, rtol=1e-9, atol=1e-11)": (
-                  "sol = solve_ivp(\n"
-                  "    f,\n"
-                  "    (0, 6),\n"
-                  "    [y0],\n"
-                  "    t_eval=t_eval,\n"
-                  "    rtol=1e-9,\n"
-                  "    atol=1e-11,\n"
-                  ")"
+          def replace_indented_line(code, old, replacement_lines):
+              pattern = re.compile(
+                  rf"(?m)^(?P<indent>[ \t]*){re.escape(old)}$"
+              )
+
+              def replacement(match):
+                  indent = match.group("indent")
+                  return "\n".join(
+                      f"{indent}{line}" if line else ""
+                      for line in replacement_lines
+                  )
+
+              return pattern.sub(replacement, code)
+
+          replacements = (
+              (
+                  "sol = solve_ivp(f, (0, 6), [y0], t_eval=t_eval, "
+                  "rtol=1e-9, atol=1e-11)",
+                  (
+                      "sol = solve_ivp(",
+                      "    f,",
+                      "    (0, 6),",
+                      "    [y0],",
+                      "    t_eval=t_eval,",
+                      "    rtol=1e-9,",
+                      "    atol=1e-11,",
+                      ")",
+                  ),
               ),
-              "print(\"     h    steps       w(2)          exact          error      observed p\")": (
-                  "header = (\n"
-                  "    \"     h    steps       w(2)          exact\"\n"
-                  "    \"          error      observed p\"\n"
-                  ")\n"
-                  "print(header)"
+              (
+                  "print(\"     h    steps       w(2)          exact          "
+                  "error      observed p\")",
+                  (
+                      "header = (",
+                      "    \"     h    steps       w(2)          exact\"",
+                      "    \"          error      observed p\"",
+                      ")",
+                      "print(header)",
+                  ),
               ),
-              "print(f\"{h:7.3f}   {n_steps:4d}   {w[-1]:12.8f}   {exact(2.0):12.8f}   {error:10.6f}   {p_text}\")": (
-                  "row = (\n"
-                  "    f\"{h:7.3f}   {n_steps:4d}   {w[-1]:12.8f}   \"\n"
-                  "    f\"{exact(2.0):12.8f}   {error:10.6f}   {p_text}\"\n"
-                  ")\n"
-                  "print(row)"
+              (
+                  "print(f\"{h:7.3f}   {n_steps:4d}   {w[-1]:12.8f}   "
+                  "{exact(2.0):12.8f}   {error:10.6f}   {p_text}\")",
+                  (
+                      "row = (",
+                      "    f\"{h:7.3f}   {n_steps:4d}   {w[-1]:12.8f}   \"",
+                      "    f\"{exact(2.0):12.8f}   {error:10.6f}   {p_text}\"",
+                      ")",
+                      "print(row)",
+                  ),
               ),
-          }
+          )
 
           for directory in module_directories:
               for path in sorted(Path(directory).glob("*.ipynb")):
@@ -116,34 +135,38 @@ jobs:
                           continue
 
                       source = cell.get("source", [])
-                      code = "".join(source) if isinstance(source, list) else str(source)
-                      if not code.strip():
-                          continue
-
-                      for old, new in replacements.items():
-                          code = code.replace(old, new)
-
-                      formatted = autopep8.fix_code(
-                          code,
-                          options={
-                              "aggressive": 1,
-                              "max_line_length": 79,
-                              "select": selected_fixes,
-                          },
-                      )
-
                       original = (
                           "".join(source)
                           if isinstance(source, list)
                           else str(source)
                       )
+                      if not original.strip():
+                          continue
+
+                      code = original
+                      for old, replacement_lines in replacements:
+                          code = replace_indented_line(
+                              code,
+                              old,
+                              replacement_lines,
+                          )
+
+                      formatted = autopep8.fix_code(
+                          code,
+                          options={
+                              "max_line_length": 79,
+                              "select": selected_fixes,
+                          },
+                      )
+
                       if formatted != original:
                           cell["source"] = formatted.splitlines(keepends=True)
                           changed = True
 
                   if changed:
                       path.write_text(
-                          json.dumps(notebook, indent=1, ensure_ascii=False) + "\n",
+                          json.dumps(notebook, indent=1, ensure_ascii=False)
+                          + "\n",
                           encoding="utf-8",
                       )
                       print(f"Formatted {path}")
