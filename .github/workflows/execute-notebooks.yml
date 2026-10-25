@@ -70,7 +70,14 @@ jobs:
           import autopep8
 
           module_directories = ("module_1", "module_2", "module_3")
-          selected_fixes = ("E225", "E226", "E231", "E302", "E305")
+          selected_fixes = (
+              "E225",
+              "E226",
+              "E231",
+              "E302",
+              "E305",
+              "E501",
+          )
 
           def replace_indented_line(code, old, replacement_lines):
               pattern = re.compile(
