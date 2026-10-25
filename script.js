@@ -25,31 +25,31 @@ const courseModules = {
     },
     {
       number: '02',
-      title: 'Floating-Point Arithmetic',
+      title: 'Numerical Error and Floating-Point Arithmetic',
       description: 'Finite-digit arithmetic, fl notation, chopping, rounding, IEEE-754, ULPs, and cancellation.',
       path: 'module_1/02_floating_point_and_error.ipynb',
     },
     {
       number: '03',
-      title: 'Bisection Method',
+      title: 'Bisection Method and Supporting Theorems',
       description: 'IVT, Rolle and uniqueness ideas, the bisection algorithm, error bounds, and iteration counts.',
       path: 'module_1/03_bisection_method.ipynb',
     },
     {
       number: '04',
-      title: 'Fixed Points and Cobwebs',
+      title: 'Fixed-Point Iteration and Cobweb Diagrams',
       description: 'Fixed-point iteration, convergence hypotheses, derivative bounds, and cobweb diagrams.',
       path: 'module_1/04_fixed_point_cobwebs.ipynb',
     },
     {
       number: '05',
       title: "Newton's Method",
-      description: 'Tangent-line derivation, implementation, graphical interpretation, and common failure modes.',
+      description: 'Tangent-line iteration plus divergence, cycling, and multiple-root convergence examples.',
       path: 'module_1/05_newton_method.ipynb',
     },
     {
       number: '06',
-      title: 'Order of Convergence',
+      title: 'Big-O, Order, and Rate of Convergence',
       description: 'Big-O notation, linear and quadratic convergence, asymptotic constants, and observed order.',
       path: 'module_1/06_order_of_convergence.ipynb',
     },
@@ -58,13 +58,13 @@ const courseModules = {
   module2Resources: [
     {
       number: '01',
-      title: 'Lagrange Interpolation',
+      title: 'Lagrange Interpolation, Uniqueness, and Error',
       description: 'Lagrange basis polynomials, uniqueness, degree at most n, and interpolation error.',
       path: 'module_2/01_lagrange_interpolation.ipynb',
     },
     {
       number: '02',
-      title: 'Degree-10 LIP vs. Taylor',
+      title: 'Degree-10 LIP vs. Degree-10 Taylor',
       description: 'Compare two degree-10 approximations of 1/(1+x²) on [-1, 1] and inspect their errors.',
       path: 'module_2/02_lip_vs_taylor.ipynb',
     },
@@ -82,7 +82,7 @@ const courseModules = {
     },
     {
       number: '05',
-      title: 'Least-Squares Best Fit',
+      title: 'Least-Squares Best Fit and Normal Equations',
       description: 'Normal equations, constrained models, residual sums of squares, and R² model comparison.',
       path: 'module_2/05_least_squares_best_fit.ipynb',
     },
@@ -109,7 +109,7 @@ const courseModules = {
   module3Resources: [
     {
       number: '00',
-      title: 'IVP Foundations',
+      title: 'IVP Foundations: Lipschitz, Existence/Uniqueness, and Well-Posedness',
       description: 'Lipschitz conditions, existence and uniqueness, perturbations, and well-posedness.',
       path: 'module_3/00_ivp_foundations.ipynb',
     },
@@ -133,13 +133,13 @@ const courseModules = {
     },
     {
       number: '04',
-      title: 'Higher-Order Taylor Methods',
+      title: 'Taylor Methods of Orders 2, 3, and 4',
       description: 'Taylor methods of orders 2, 3, and 4 with local truncation error and convergence studies.',
       path: 'module_3/04_taylor_methods.ipynb',
     },
     {
       number: '05',
-      title: 'Runge–Kutta: RK2 and RK3',
+      title: 'Runge–Kutta Methods: RK2 and RK3',
       description: 'Improved Euler, midpoint RK2, Heun RK3, and numerical order comparisons.',
       path: 'module_3/05_rk2_rk3.ipynb',
     },
@@ -151,7 +151,7 @@ const courseModules = {
     },
     {
       number: '07',
-      title: 'Adaptive RK23 and Method Comparison',
+      title: 'Adaptive RK23 and Comparison of All Methods',
       description: 'Brin-style adaptive RK23 plus a common-IVP comparison of all major methods in the course.',
       path: 'module_3/07_rk23_and_method_comparison.ipynb',
     },
