@@ -1,8 +1,22 @@
 # MAD 4401 — Numerical Analysis
 
-Welcome to the course repository for **MAD 4401: Numerical Analysis**.
+This repository contains student-facing course resources for **MAD 4401: Numerical Analysis** at the University of Florida.
 
-This repository is organized as a guided set of modules rather than a file archive. Each module page walks through the material in order and links directly to executable notebooks.
+The repository is organized as a guided set of modules rather than a file archive. Each module page walks through the material in order and links directly to executable notebooks.
+
+## Course website
+
+The primary student interface is the GitHub Pages course site:
+
+**https://mathguy-uf.github.io/MAD4401/**
+
+Students should normally begin there rather than browsing the repository file tree.
+
+## Start here
+
+New to Git, GitHub, Jupyter, Colab, or Binder?
+
+See **[START_HERE.md](START_HERE.md)** for the short course setup and **[GITHUB_GUIDE.md](GITHUB_GUIDE.md)** for the detailed student Git guide.
 
 ## Course modules
 
@@ -12,29 +26,15 @@ This repository is organized as a guided set of modules rather than a file archi
 | **Module 2** | Approximation, Interpolation, and Numerical Calculus | **Available** | **[Start Module 2](module_2/README.md)** |
 | **Module 3** | Initial-Value Problems and Numerical ODEs | **Available** | **[Start Module 3](module_3/README.md)** |
 
-# New to GitHub?
+## Three ways to use notebooks
 
-You do **not** need to know advanced Git to use this course repository.
+Every module offers the same three options:
 
-Start with the **[Student Guide to Git and GitHub](GITHUB_GUIDE.md)**. It explains:
+1. **View on GitHub** — read the notebook and saved output.
+2. **Run in Colab** — execute one notebook in Google Colab.
+3. **Launch Binder** — open the repository in a temporary JupyterLab environment.
 
-- what Git, GitHub, and JupyterLab each do;
-- how to clone the course repository;
-- how to use `git pull` to get new material;
-- how to use `git status` to see local changes;
-- how to protect work you have done in a notebook;
-- what to do when `git pull` reports a conflict with local changes;
-- how to use Colab or Binder instead of installing Python locally.
-
-For normal course use, the most important Git commands are:
-
-```bash
-git clone https://github.com/mathguy-uf/MAD4401.git
-git pull
-git status
-```
-
-## First-time local setup
+For repeated local use, clone the repository once:
 
 ```bash
 cd Documents
@@ -44,11 +44,7 @@ python -m pip install -r requirements.txt
 jupyter lab
 ```
 
-If your system does not recognize `python`, try `python3` or `py`.
-
-## Normal class-day workflow
-
-After the repository has been cloned once:
+Later:
 
 ```bash
 cd Documents/MAD4401
@@ -56,33 +52,15 @@ git pull
 jupyter lab
 ```
 
-Do **not** clone the repository again every time new material is posted.
+For normal course use, the most important Git commands are:
 
-## Useful commands
+```bash
+git clone https://github.com/mathguy-uf/MAD4401.git
+git pull
+git status
+```
 
-| Command | What it does |
-|---|---|
-| `pwd` | Shows your current folder |
-| `ls` | Lists files and folders |
-| `cd folder_name` | Moves into a folder |
-| `cd ..` | Moves up one folder |
-| `git clone URL` | Makes your first local copy |
-| `git pull` | Gets the latest course updates |
-| `git status` | Shows local changes |
-| `git restore FILE` | Restores the instructor version of a file; use carefully |
-| `jupyter lab` | Opens JupyterLab |
-
-If you edit a course notebook, Git may report that your local file has changed. That is normal. The safest habit is to make a personal copy before experimenting with a course notebook. Students normally need `git pull`, not `git push`.
-
-## Browser-based options
-
-All three module pages include **Google Colab** and **Binder/JupyterLab** links.
-
-- **View notebook** — read the notebook on GitHub.
-- **Run in Colab** — execute it in a Google-hosted browser session.
-- **Launch Binder** — execute it in a temporary JupyterLab environment.
-
-These services do **not** run code on the instructor's GitHub account or computer, and they do not modify the course repository.
+Students normally need `git pull`, not `git push`.
 
 ## Current material
 
