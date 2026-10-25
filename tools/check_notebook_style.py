@@ -209,9 +209,8 @@ def check_notebook_coverage(
     root: Path,
     paths: list[Path],
 ) -> list[str]:
-    """Check that every notebook appears in all student navigation surfaces."""
+    """Check notebook-level navigation in module guides and the Pages site."""
     issues: list[str] = []
-    root_readme = (root / "README.md").read_text(encoding="utf-8")
     script = (root / "script.js").read_text(encoding="utf-8")
 
     module_readmes = {
@@ -225,11 +224,6 @@ def check_notebook_coverage(
         relative_path = path.relative_to(root).as_posix()
         directory = path.parent.name
 
-        if relative_path not in root_readme:
-            issues.append(
-                f"README.md: missing notebook navigation for {relative_path}."
-            )
-
         if relative_path not in script:
             issues.append(
                 f"script.js: missing Pages card for {relative_path}."
@@ -239,6 +233,19 @@ def check_notebook_coverage(
             issues.append(
                 f"{directory}/README.md: missing notebook {path.name}."
             )
+
+    return issues
+
+
+def check_root_module_navigation(root: Path) -> list[str]:
+    """Check that the root README links to each module landing page."""
+    issues: list[str] = []
+    readme = (root / "README.md").read_text(encoding="utf-8")
+
+    for directory in MODULE_DIRECTORIES:
+        target = f"{directory}/README.md"
+        if target not in readme:
+            issues.append(f"README.md: missing module guide link {target}.")
 
     return issues
 
@@ -276,6 +283,7 @@ def main() -> int:
     all_issues.extend(check_notebook_names(paths, root))
     all_issues.extend(check_local_markdown_links(root))
     all_issues.extend(check_notebook_coverage(root, paths))
+    all_issues.extend(check_root_module_navigation(root))
     all_issues.extend(check_html_anchors(root))
 
     if all_issues:
