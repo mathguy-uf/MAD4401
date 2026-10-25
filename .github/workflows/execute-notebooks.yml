@@ -70,14 +70,7 @@ jobs:
           import autopep8
 
           module_directories = ("module_1", "module_2", "module_3")
-          selected_fixes = (
-              "E225",
-              "E226",
-              "E231",
-              "E302",
-              "E305",
-              "E501",
-          )
+          selected_fixes = ("E225", "E226", "E231", "E302", "E305")
 
           def replace_indented_line(code, old, replacement_lines):
               pattern = re.compile(
@@ -94,6 +87,18 @@ jobs:
               return pattern.sub(replacement, code)
 
           replacements = (
+              (
+                  "print(f\"At y = {y_test:4.1f}, f(y) = "
+                  "{f(0, y_test): .3f}: solutions move {direction}.\")",
+                  (
+                      "message = (",
+                      "    f\"At y = {y_test:4.1f}, f(y) = "
+                      "{f(0, y_test): .3f}: \"",
+                      "    f\"solutions move {direction}.\"",
+                      ")",
+                      "print(message)",
+                  ),
+              ),
               (
                   "sol = solve_ivp(f, (0, 6), [y0], t_eval=t_eval, "
                   "rtol=1e-9, atol=1e-11)",
