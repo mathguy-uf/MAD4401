@@ -53,7 +53,14 @@ jobs:
           import autopep8
 
           module_directories = ("module_1", "module_2", "module_3")
-          selected_fixes = ("E226", "E231", "E302", "E305", "E501")
+          selected_fixes = (
+              "E225",
+              "E226",
+              "E231",
+              "E302",
+              "E305",
+              "E501",
+          )
 
           for directory in module_directories:
               for path in sorted(Path(directory).glob("*.ipynb")):
@@ -72,6 +79,7 @@ jobs:
                       formatted = autopep8.fix_code(
                           code,
                           options={
+                              "aggressive": 1,
                               "max_line_length": 79,
                               "select": selected_fixes,
                           },
