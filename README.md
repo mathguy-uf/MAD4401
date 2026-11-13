@@ -83,6 +83,7 @@ Students normally need `git pull`, not `git push`.
 6. Numerical Differentiation
 7. Riemann Sums
 8. Trapezoidal and Simpson's Rules
+9. [Lagrange Interpolation at Chebyshev Roots](module_2/09_chebyshev_interpolation.ipynb) — interactive extension of Sarah Pollock's examples; suggested after Sections 1–2.
 
 ### Module 3
 
@@ -95,6 +96,9 @@ Students normally need `git pull`, not `git push`.
 6. Classical RK4
 7. Adaptive RK23 and Comparison of All Methods
 
+The [geometric Runge–Kutta lecture notes](module_3/notes/README.md) are available
+as PDF slides and editable LaTeX, with links from the RK2 and RK4 notebooks.
+
 ## References
 
 The course notebooks use **Eric Sullivan's _Numerical Methods: An Inquiry-Based Approach with Python_**, **Leon Q. Brin's _Tea Time Numerical Analysis_**, and **Burden & Faires, _Numerical Analysis_** as references for computational presentation, notation, algorithms, and error analysis.
@@ -103,3 +107,4 @@ The course notebooks use **Eric Sullivan's _Numerical Methods: An Inquiry-Based 
 
 **Department of Mathematics — University of Florida**  
 Course materials by Dr. Harrington.
+

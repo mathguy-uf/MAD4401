@@ -18,6 +18,9 @@ The presentation uses **Eric Sullivan, _Numerical Methods: An Inquiry-Based Appr
 | **6** | Numerical Differentiation | [View notebook](06_numerical_differentiation.ipynb) | [Run in Colab](https://colab.research.google.com/github/mathguy-uf/MAD4401/blob/main/module_2/06_numerical_differentiation.ipynb) | [Launch Binder](https://mybinder.org/v2/gh/mathguy-uf/MAD4401/main?urlpath=lab/tree/module_2/06_numerical_differentiation.ipynb) |
 | **7** | Riemann Sums | [View notebook](07_riemann_sums.ipynb) | [Run in Colab](https://colab.research.google.com/github/mathguy-uf/MAD4401/blob/main/module_2/07_riemann_sums.ipynb) | [Launch Binder](https://mybinder.org/v2/gh/mathguy-uf/MAD4401/main?urlpath=lab/tree/module_2/07_riemann_sums.ipynb) |
 | **8** | Trapezoidal and Simpson's Rules | [View notebook](08_trapezoidal_simpson.ipynb) | [Run in Colab](https://colab.research.google.com/github/mathguy-uf/MAD4401/blob/main/module_2/08_trapezoidal_simpson.ipynb) | [Launch Binder](https://mybinder.org/v2/gh/mathguy-uf/MAD4401/main?urlpath=lab/tree/module_2/08_trapezoidal_simpson.ipynb) |
+| **9** | Lagrange Interpolation at Chebyshev Roots | [View notebook](09_chebyshev_interpolation.ipynb) | [Run in Colab](https://colab.research.google.com/github/mathguy-uf/MAD4401/blob/main/module_2/09_chebyshev_interpolation.ipynb) | [Launch Binder](https://mybinder.org/v2/gh/mathguy-uf/MAD4401/main?urlpath=lab/tree/module_2/09_chebyshev_interpolation.ipynb) |
+
+**New interpolation extension:** read Section 9 after Sections 1–2. Run all cells to activate the sliders; saved figures remain readable on GitHub.
 
 ## Learning path
 
@@ -65,6 +68,16 @@ Use left, right, and midpoint rectangles to approximate definite integrals and c
 
 Move from piecewise constants to piecewise linear and quadratic approximations. Implement single and composite trapezoidal and Simpson rules, apply the course error formulas, compare convergence orders, and solve for the number of subintervals needed to guarantee a requested tolerance.
 
+### Section 9 — Lagrange Interpolation at Chebyshev Roots
+
+An interactive Python adaptation of Sarah Pollock's `lagrange_interp.m` and
+`cheby_lagrange.m`. Compare equally spaced, random, and Chebyshev root nodes;
+explore the Runge phenomenon; and see why the roots of $T_{n+1}$ minimize the
+maximum absolute nodal product for a degree-at-most-$n$ interpolant. The lesson
+includes the minimax argument, mapped intervals, a rigorous exponential error
+bound, and a separate random-data experiment. It distinguishes an error bound
+from the actual interpolation error and random nodes from random values.
+
 ## Exam 2 / review checklist
 
 Students should be comfortable with:
@@ -89,3 +102,4 @@ Students should be comfortable with:
 ---
 
 [← MAD 4401 home](../README.md) · [Student Git/GitHub Guide](../GITHUB_GUIDE.md)
+

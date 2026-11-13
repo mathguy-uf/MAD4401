@@ -104,6 +104,12 @@ const courseModules = {
       description: 'Single and composite quadrature rules, error bounds, and choosing n for a target accuracy.',
       path: 'module_2/08_trapezoidal_simpson.ipynb',
     },
+    {
+      number: '09',
+      title: 'Lagrange Interpolation at Chebyshev Roots',
+      description: "Sarah Pollock's examples in Python: compare equal, random, and Chebyshev nodes, explore Runge error, and see what the roots minimize. Suggested after Sections 1–2.",
+      path: 'module_2/09_chebyshev_interpolation.ipynb',
+    },
   ],
 
   module3Resources: [
@@ -204,3 +210,4 @@ Object.entries(courseModules).forEach(([containerId, resources]) => {
     container.appendChild(makeResourceCard(resource));
   });
 });
+

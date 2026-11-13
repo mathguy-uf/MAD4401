@@ -25,6 +25,15 @@ Module 3 begins with the theory that makes an initial-value problem meaningful, 
 
 > GitHub stores the files. Colab and Binder execute code in their own hosted environments; they do not run code on the instructor's GitHub account or computer.
 
+## Runge–Kutta lecture notes
+
+[Read the geometric introduction (PDF)](notes/M12_RK_Geometric_Introduction.pdf) · [LaTeX source](notes/M12_RK_Geometric_Introduction.tex) · [Notes and compilation instructions](notes/README.md)
+
+Begin after Taylor methods: use geometry and slope averages to derive the RK2
+weights, then follow the four RK4 trial points. The notes connect Improved Euler
+to RK2 and clarify local versus global error conventions. Adaptive RK2(3)
+remains a separate topic in Section 7.
+
 ## Learning path
 
 ### Section 0 — IVP Foundations
@@ -91,3 +100,4 @@ Students should be comfortable with:
 ---
 
 [← MAD 4401 home](../README.md) · [Student Git/GitHub Guide](../GITHUB_GUIDE.md)
+
